@@ -2,6 +2,7 @@ package com.sparta.testcoding0604;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sparta.testcoding0604.repository.RestaurantRepository;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -350,7 +351,6 @@ class RestaurantIntegrationTest {
         private String name;
         private int minOrderPrice;
         private int deliveryFee;
-
 
         @Builder
         public RestaurantDto(Long id ,String name, int minOrderPrice, int deliveryFee) {

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -438,20 +439,35 @@ class OrderIntegrationTest {
 
     @Getter
     @Setter
-    @Builder
+    @NoArgsConstructor
     static class RestaurantDto {
         private Long id;
         private String name;
         private int minOrderPrice;
         private int deliveryFee;
+
+        @Builder
+        public RestaurantDto(Long id, String name, int minOrderPrice, int deliveryFee) {
+            this.id = id;
+            this.name = name;
+            this.minOrderPrice = minOrderPrice;
+            this.deliveryFee = deliveryFee;
+        }
     }
 
     @Getter
     @Setter
-    @Builder
+    @NoArgsConstructor
     static class FoodDto {
         private Long id;
         private String name;
         private int price;
+
+        @Builder
+        public FoodDto(Long id, String name, int price) {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+        }
     }
 }

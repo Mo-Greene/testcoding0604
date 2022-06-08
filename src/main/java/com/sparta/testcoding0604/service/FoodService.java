@@ -19,8 +19,8 @@ public class FoodService {
     private final FoodRepository foodRepository;
     private final RestaurantRepository restaurantRepository;
 
-    public void addRestaurantFoods(Long restaurantId, List<FoodDto> foodDto){
-        Optional<Restaurant> foundRestaurant = restaurantRepository.findById(restaurantId);
+    public void addRestaurantFoods(Long restaurantId, List<FoodDto> foodDto){           //Long이 왜 나온걸까??
+        Optional<Restaurant> foundRestaurant = restaurantRepository.findById(restaurantId); //레스토랑이 있는지 없는지 확인
 
         checkRestaurant(foundRestaurant);
         Restaurant restaurant = foundRestaurant.get();
@@ -44,7 +44,7 @@ public class FoodService {
 }
     private void checkRestaurant(Optional<Restaurant> foundRestaurant) {
         if (!foundRestaurant.isPresent())
-            throw new IllegalArgumentException("음식점이 존재 하지 않습니다.");
+            throw new IllegalArgumentException("레스토랑이 존재 하지 않습니다.");
     }
 
     private void checkDuplicateRestaurantFood(Restaurant restaurant, String foodName) {

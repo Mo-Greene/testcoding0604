@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@RestController //json형태로 데이터를 받기위해서 쓰는것
 @RequiredArgsConstructor
 public class RestaurantController {
     private final RestaurantService restaurantService;

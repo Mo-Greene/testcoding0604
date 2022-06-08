@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Transactional  //jpa실행하려면 넣어야됨
+@Transactional  //메서드는 메서드가 포함하고 있는 작업 중에 하나라도 실패할 경우 전체 작업을 취소한다.
 @RequiredArgsConstructor
 @Service
 public class RestaurantService {
@@ -17,14 +17,16 @@ public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
 
     public Restaurant addRestaurant(RestaurantDto restaurantDto){
+        String name = restaurantDto.getName();
         int minOrderPrice = restaurantDto.getMinOrderPrice();
         int deliveryFee = restaurantDto.getDeliveryFee();
+        //변수 지정 확인 후 메소드 진행
 
         allowMinOrderPrice(minOrderPrice);
         allowDeliveryFee(deliveryFee);
 
         Restaurant restaurant = Restaurant.builder()
-                .name(restaurantDto.getName())
+                .name(name)
                 .minOrderPrice(minOrderPrice)
                 .deliveryFee(deliveryFee)
                 .build();

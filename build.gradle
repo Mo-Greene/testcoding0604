@@ -29,8 +29,8 @@ dependencies {
     testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
 
     // 테스트 코드를 위한 Lombok 라이브러리
-    testCompileOnly 'org.projectlombok:lombok:1.18.12'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 
     // 스프링 부트 테스트를 위한 라이브러리
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

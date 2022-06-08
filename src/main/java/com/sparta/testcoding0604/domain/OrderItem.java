@@ -7,23 +7,28 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Entity
 @Builder
-public class Food {
+@Getter
+public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;                //pk id
+    private Long id;
 
     @Column(nullable = false)
-    private String name;            //음식 이름
+    private int quantity;
 
     @Column(nullable = false)
-    private int price;      //음식 금액
+    private String name;
+
+    @Column(nullable = false)
+    private int price;
 
     @ManyToOne
-    @JoinColumn(name = "restaurant_id") //왜 나온거니?
-    private Restaurant restaurant;
+    private Food food;
+
+    @ManyToOne
+    private Orders orders;
 }
